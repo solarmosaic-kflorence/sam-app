@@ -14,7 +14,7 @@ FROM base as runtime
 
 COPY --from=dependencies $VIRTUAL_ENV $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
-ADD hello_world/ .
+COPY hello_world/app.py .
 
 # Command can be overwritten by providing a different command in the template directly.
 CMD ["app.lambda_handler"]
